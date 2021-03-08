@@ -23,18 +23,18 @@ export class QuizComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  selectQuiz() {
+  selectQuiz(): void {
     this.quizSelected.emit(true);
   }
 
-  edit() {
+  edit(): void {
     this.editQuiz.emit(this.quiz);
   }
 
-  delete() {
+  delete(): void {
     this.deleteQuiz.emit(this.quiz);
   }
 }

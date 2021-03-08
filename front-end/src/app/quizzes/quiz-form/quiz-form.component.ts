@@ -30,10 +30,10 @@ export class QuizFormComponent implements OnInit {
     // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  addQuiz() {
+  addQuiz(): void {
     // We retrieve here the quiz object from the quizForm and we cast the type "as Quiz".
     const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
 

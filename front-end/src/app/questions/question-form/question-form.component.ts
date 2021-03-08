@@ -21,33 +21,33 @@ export class QuestionFormComponent implements OnInit {
     this.initializeQuestionForm();
   }
 
-  private initializeQuestionForm() {
+  private initializeQuestionForm(): void {
     this.questionForm = this.formBuilder.group({
       label: ['', Validators.required],
       answers: this.formBuilder.array([])
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  get answers() {
+  get answers(): FormArray {
     return this.questionForm.get('answers') as FormArray;
   }
 
-  private createAnswer() {
+  private createAnswer(): FormGroup {
     return this.formBuilder.group({
       value: '',
       isCorrect: false,
     });
   }
 
-  addAnswer() {
+  addAnswer(): void {
     this.answers.push(this.createAnswer());
   }
 
-  addQuestion() {
-    if(this.questionForm.valid) {
+  addQuestion(): void {
+    if (this.questionForm.valid) {
       const question = this.questionForm.getRawValue() as Question;
       this.quizService.addQuestion(this.quiz, question);
       this.initializeQuestionForm();

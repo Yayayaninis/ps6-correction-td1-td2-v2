@@ -9,16 +9,16 @@ import { Question } from 'src/models/question.model';
   styleUrls: ['./question-list.component.scss']
 })
 export class QuestionListComponent implements OnInit {
-  
+
   @Input()
   quiz: Quiz;
-  
+
   constructor(private quizService: QuizService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  deleteQuestion(question: Question) {
+  deleteQuestion(question: Question): void {
     this.quizService.deleteQuestion(this.quiz, question);
   }
 

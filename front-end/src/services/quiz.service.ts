@@ -10,20 +10,20 @@ import { serverUrl, httpOptionsBase } from '../configs/server.config';
   providedIn: 'root'
 })
 export class QuizService {
-  /**
-   * Services Documentation:
-   * https://angular.io/docs/ts/latest/tutorial/toh-pt4.html
+  /*
+   Services Documentation:
+   https://angular.io/docs/ts/latest/tutorial/toh-pt4.html
    */
 
-  /**
-   * The list of quiz.
-   * The list is retrieved from the mock.
+  /*
+   The list of quiz.
+   The list is retrieved from the mock.
    */
   private quizzes: Quiz[] = QUIZ_LIST;
 
-  /**
-   * Observable which contains the list of the quiz.
-   * Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
+  /*
+   Observable which contains the list of the quiz.
+   Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
    */
   public quizzes$: BehaviorSubject<Quiz[]>
     = new BehaviorSubject(this.quizzes);
@@ -39,40 +39,41 @@ export class QuizService {
     this.setQuizzesFromUrl();
   }
 
-  setQuizzesFromUrl() {
+  setQuizzesFromUrl(): void {
     this.http.get<Quiz[]>(this.quizUrl).subscribe((quizList) => {
       this.quizzes = quizList;
       this.quizzes$.next(this.quizzes);
     });
   }
 
-  addQuiz(quiz: Quiz) {
+  addQuiz(quiz: Quiz): void {
     this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).subscribe(() => this.setQuizzesFromUrl());
   }
 
-  setSelectedQuiz(quizId: string) {
+  setSelectedQuiz(quizId: string): void {
     const urlWithId = this.quizUrl + '/' + quizId;
     this.http.get<Quiz>(urlWithId).subscribe((quiz) => {
       this.quizSelected$.next(quiz);
     });
   }
 
-  deleteQuiz(quiz: Quiz) {
+  deleteQuiz(quiz: Quiz): void {
     const urlWithId = this.quizUrl + '/' + quiz.id;
     this.http.delete<Quiz>(urlWithId, this.httpOptions).subscribe(() => this.setQuizzesFromUrl());
   }
 
-  addQuestion(quiz: Quiz, question: Question) {
+  addQuestion(quiz: Quiz, question: Question): void {
     const questionUrl = this.quizUrl + '/' + quiz.id + '/' + this.questionsPath;
     this.http.post<Question>(questionUrl, question, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
   }
 
-  deleteQuestion(quiz: Quiz, question: Question) {
+  deleteQuestion(quiz: Quiz, question: Question): void {
     const questionUrl = this.quizUrl + '/' + quiz.id + '/' + this.questionsPath + '/' + question.id;
     this.http.delete<Question>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
   }
 
-  /** Note: The functions below don't interact with the server. It's an example of implementation for the exercice 10.
+  /*
+  Note: The functions below don't interact with the server. It's an example of implementation for the exercice 10.
   addQuestion(quiz: Quiz, question: Question) {
     quiz.questions.push(question);
     const index = this.quizzes.findIndex((q: Quiz) => q.id === quiz.id);
@@ -93,5 +94,5 @@ export class QuizService {
     this.quizzes[index] = quiz;
     this.quizzes$.next(this.quizzes);
   }
-  **/
+  */
 }

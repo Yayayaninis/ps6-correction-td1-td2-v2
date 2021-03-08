@@ -16,10 +16,10 @@ export class QuestionComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  delete() {
+  delete(): void {
     this.deleteQuestion.emit(this.question);
   }
 
