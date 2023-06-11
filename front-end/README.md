@@ -41,6 +41,15 @@ Then navigate to `http://localhost:4200/` to see the application. The app will a
 
 You can also use the command `ng serve` to start the app and also `ng serve --open` to open directly the app in the browser.
 
+## Run the end to end tests
+
+Before running the tests, you need to run your front-end and back-end:
+
+1) Run your back-end: `npm run start:e2e`
+2) Run your front-end: `npm run start`
+3) Run the tests:  `npm run test:e2e`
+
+
 ## Run the linter
 
 ```
