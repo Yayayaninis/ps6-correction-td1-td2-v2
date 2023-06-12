@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { testUrl } from 'e2e/e2e.config';
 import { QuestionFormFixture } from 'src/app/questions/question-form/question-form.fixture';
-import { QuizFormComponent } from 'src/app/quizzes/quiz-form/quiz-form.component';
 import { QuizFormFixture } from 'src/app/quizzes/quiz-form/quiz-form.fixture';
 import { QuizFixture } from 'src/app/quizzes/quiz/quiz.fixture';
 
@@ -10,7 +9,7 @@ import { QuizFixture } from 'src/app/quizzes/quiz/quiz.fixture';
 // test.describe is a hook that creates a test group and lets you define lifecycle stages such as beforeEach.
 test.describe('Quiz Feature', () => {
 
-    test('Quiz Creation', async ({ page }) => {
+    test('Create a quiz successfully', async ({ page }) => {
         await page.goto(testUrl);
 
         //create all fixtures
@@ -21,7 +20,6 @@ test.describe('Quiz Feature', () => {
         await expect(page).toHaveURL("http://localhost:4200/quiz-list");
 
         await test.step(`Quiz form visible`, async () => {
-
             const quizForm = await quizFormFixture.getQuizForm();
             const isVisible = await quizForm.isVisible();
             expect(isVisible).toBeTruthy();
@@ -60,7 +58,7 @@ test.describe('Quiz Feature', () => {
         });
     });
 
-    test('Delete Quiz', async ({ page }) => {
+    test('Delete a quiz succesfully', async ({ page }) => {
         await page.goto(testUrl);
         const quizFixture = new QuizFixture(page);
         const quiz = await page.getByRole('heading', { name: ' Quiz E2E' });
@@ -70,3 +68,4 @@ test.describe('Quiz Feature', () => {
     });
 
 });
+
