@@ -1,0 +1,69 @@
+<div class="MaquetteResultat">
+  <div class="container">
+
+    <!-- Header avec bouton config -->
+    <div class="header">
+      <h2 class="fade-in">Statistiques de jeu 🎮</h2>
+      <button class="btn-config fade-in" (click)="goToAccueil()">Retourner à L'acceuil</button>
+    </div>
+
+    <!-- Historique détaillé -->
+    <div class="detailed-stats">
+
+      <!-- 🌟 Session actuelle -->
+      <div class="phrase-stat fade-in-up">
+        <h3>📍 Session en cours</h3>
+        <ul>
+          <li>👂 Écoutes effectuées : {{ currentSession.listenCount }}</li>
+          <li>❌ Total d'erreurs : {{ currentSession.totalErrors }}</li>
+          <li>📏 Mots longs mal écrits : {{ currentSession.longWordErrors }}</li>
+          <li>🔤 Erreurs de verbes : {{ currentSession.verbErrors }}</li>
+          <li>🧱 Erreurs de noms : {{ currentSession.nounErrors }}</li>
+          <li>🎨 Erreurs d'adjectifs : {{ currentSession.adjectiveErrors }}</li>
+          <li>🧩 Erreurs de déterminants : {{ currentSession.determinantErrors }}</li>
+          <li>🧷 Erreurs de ponctuation : {{ currentSession.punctuationErrors }}</li>
+          <li>✍️ Réécritures ratées : {{ currentSession.rewriteErrors }}</li>
+          <li>
+            🧾 Mots mal réécrits :
+            <ul *ngIf="currentSession.wrongRewriteWords.length > 0; else noWrongWordsNow">
+              <li *ngFor="let word of currentSession.wrongRewriteWords">{{ word }}</li>
+            </ul>
+            <ng-template #noWrongWordsNow>
+              <em>Aucun</em>
+            </ng-template>
+          </li>
+        </ul>
+        <small>🕒 {{ formatDate(currentSession.date) }}</small>
+        <hr>
+      </div>
+
+      <!-- 🗃️ Historique des sessions -->
+      <div *ngFor="let stat of statsHistory" class="phrase-stat fade-in-up">
+        <h3>📚 Partie précédente</h3>
+        <ul>
+          <li>👂 Écoutes effectuées : {{ stat.listenCount }}</li>
+          <li>❌ Total d'erreurs : {{ stat.totalErrors }}</li>
+          <li>📏 Mots longs mal écrits : {{ stat.longWordErrors }}</li>
+          <li>🔤 Erreurs de verbes : {{ stat.verbErrors }}</li>
+          <li>🧱 Erreurs de noms : {{ stat.nounErrors }}</li>
+          <li>🎨 Erreurs d'adjectifs : {{ stat.adjectiveErrors }}</li>
+          <li>🧩 Erreurs de déterminants : {{ stat.determinantErrors }}</li>
+          <li>🧷 Erreurs de ponctuation : {{ stat.punctuationErrors }}</li>
+          <li>✍️ Réécritures ratées : {{ stat.rewriteErrors }}</li>
+          <li>
+            🧾 Mots mal réécrits :
+            <ul *ngIf="stat.wrongRewriteWords.length > 0; else noWrongWordsHist">
+              <li *ngFor="let word of stat.wrongRewriteWords">{{ word }}</li>
+            </ul>
+            <ng-template #noWrongWordsHist>
+              <em>Aucun</em>
+            </ng-template>
+          </li>
+        </ul>
+        <small>🕒 {{ formatDate(stat.date) }}</small>
+        <hr>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,208 @@
+.jeu-phrase-container {
+  background-color: #f0f8ff;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  background-color: #e6f2ff;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.current-student {
+  font-size: 1rem;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.main-content {
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #0056b3;
+}
+
+.instruction {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.controls-top, .controls-bottom {
+  margin: 1.5rem 0;
+}
+
+.btn {
+  padding: 0.7rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 0.5rem;
+  transition: all 0.3s ease;
+
+  &.btn-primary {
+    background-color: #00bfff;
+    color: white;
+
+    &:hover {
+      background-color: #009acd;
+      transform: scale(1.05);
+    }
+  }
+
+  &.btn-secondary {
+    background-color: #cccccc;
+    color: #333;
+
+    &:hover {
+      background-color: #999999;
+      transform: scale(1.05);
+    }
+  }
+
+  &.btn-success {
+    background-color: #28a745;
+    color: white;
+
+    &:hover {
+      background-color: #218838;
+      transform: scale(1.05);
+    }
+  }
+}
+
+.answer-container, .word-bank {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.selected-word, .word-chip {
+  margin: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.selected-word:hover, .word-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+.word-chip {
+  &.word-verb {
+    background-color: #ffcdd2;
+    color: #b71c1c;
+  }
+
+  &.word-noun {
+    background-color: #c8e6c9;
+    color: #1b5e20;
+  }
+
+  &.word-adjective {
+    background-color: #bbdefb;
+    color: #0d47a1;
+  }
+
+  &.word-determiner {
+    background-color: #fff9c4;
+    color: #f57f17;
+  }
+
+  &.word-long {
+    background-color: #e1bee7;
+    color: #4a148c;
+  }
+
+  &.word-pronoun {
+    background-color: #ffccbc;
+    color: #e65100;
+  }
+
+  &.dot-button {
+    background-color: #e0e0e0 !important;
+    color: #212121 !important;
+    font-weight: bold;
+    min-width: 40px;
+  }
+}
+
+.validation-message {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+
+  &.correct {
+    color: green;
+  }
+
+  &.incorrect {
+    color: red;
+  }
+}
+
+.final-input-section {
+  margin-top: 2rem;
+
+  input.final-input {
+    margin-top: 1rem;
+    padding: 0.7rem;
+    width: 80%;
+    max-width: 500px;
+    font-size: 1.2rem;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+  }
+}
+
+.final-success {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  color: green;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

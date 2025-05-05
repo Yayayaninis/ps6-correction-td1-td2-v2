@@ -1,0 +1,348 @@
+.MaquetteConfig {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9fafb;
+  padding: 2rem;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #3b82f6;
+
+      .logo-icon {
+        font-size: 2rem;
+        margin-right: 0.5rem;
+      }
+    }
+
+    nav {
+      button {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  h2, h3, h4 {
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.95rem;
+
+    &.btn-lightblue {
+      background-color: #3b82f6;
+      color: white;
+
+      &:hover {
+        background-color: #2563eb;
+      }
+    }
+
+    &.btn-secondary {
+      background-color: #e5e7eb;
+      color: #374151;
+
+      &:hover {
+        background-color: #d1d5db;
+      }
+    }
+
+    &.btn-success {
+      background-color: #10b981;
+      color: white;
+
+      &:hover {
+        background-color: #059669;
+      }
+    }
+
+    &.btn-danger {
+      background-color: #ef4444;
+      color: white;
+
+      &:hover {
+        background-color: #dc2626;
+      }
+    }
+
+    &.btn-grey {
+      background-color: #9ca3af;
+      color: white;
+
+      &:hover {
+        background-color: #6b7280;
+      }
+    }
+    .btn:disabled {
+      background-color: #cbd5e1 !important; // gris clair
+      color: #ffffff;
+      cursor: not-allowed;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+  }
+
+  .btn {
+    transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+
+    &.btn-lightblue {
+      background-color: #3b82f6;
+      color: white;
+    }
+
+    &:disabled,
+    &[disabled] {
+      background-color: #a1a1aa; // gris neutre
+      color: #f4f4f5;
+      cursor: not-allowed;
+      opacity: 0.6;
+      transform: none;
+      pointer-events: none;
+    }
+
+    &:not(:disabled):hover {
+      transform: scale(1.03);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+
+  .config-panel {
+    background-color: #f3f4f6;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 1px solid #d1d5db;
+
+    label {
+      display: flex;
+      align-items: center;
+      margin: 0.5rem 0;
+      gap: 0.5rem;
+
+      input[type="checkbox"] {
+        transform: scale(1.2);
+        accent-color: #3b82f6;
+      }
+    }
+
+    .config-actions {
+      margin-top: 1rem;
+    }
+  }
+
+  .add-phrase-section {
+    margin-bottom: 2rem;
+
+    .form-group {
+      margin-bottom: 1rem;
+
+      label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  .typing-panel {
+    background-color: #fef3c7;
+    border: 1px solid #fcd34d;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+
+    .word-type-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+
+      .word-type-box {
+        background: white;
+        border: 1px solid #e5e7eb;
+        padding: 0.5rem;
+        border-radius: 8px;
+
+        .word {
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+        }
+
+        .type-select {
+          width: 100%;
+          padding: 0.25rem;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+
+  .phrases-list {
+    margin-top: 1rem;
+
+    .phrase {
+      background-color: #f3f4f6;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+
+      p {
+        margin: 0 0 0.5rem;
+      }
+
+      button {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  .card {
+    background-color: #f9fafb;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 2rem;
+    border: 1px solid #e5e7eb;
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    }
+
+    .students-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+
+      .student-card {
+        background-color: white;
+        border: 1px solid #d1d5db;
+        border-radius: 10px;
+        padding: 1rem;
+        cursor: pointer;
+        position: relative;
+        transition: box-shadow 0.2s;
+
+        &:hover {
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .student-avatar {
+          font-size: 2rem;
+          background-color: #3b82f6;
+          color: white;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          margin: 0 auto 0.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .student-name {
+          font-weight: bold;
+          text-align: center;
+        }
+
+        .student-info {
+          font-size: 0.9rem;
+          color: #6b7280;
+          text-align: center;
+        }
+
+        .student-actions {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          display: flex;
+          gap: 0.5rem;
+
+          button {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+
+            &:hover {
+              color: #ef4444;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .popup {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    z-index: 1000;
+    width: 90%;
+    max-width: 500px;
+
+    h3 {
+      margin-top: 0;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+
+      input {
+        padding: 0.5rem;
+        border-radius: 6px;
+        border: 1px solid #d1d5db;
+      }
+
+      .actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+      }
+    }
+  }
+}

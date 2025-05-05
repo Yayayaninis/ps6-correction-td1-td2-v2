@@ -1,6 +1,20 @@
-<div class="header">
-    MyApp
+<header class="header">
+    <div class="logo">
+      <div class="logo-icon">🎵</div>
+      <span>MusiMots</span>
+    </div>
+    <nav>
+      <button (click)="lancerJeu()">🎮 Lancer le jeu</button>
 
-    <a class="navigation" [routerLink]="['/quiz-list']">Quiz</a>
-    <a class="navigation" [routerLink]="['/user-list']">Users</a>
-</div>
+      <button routerLink="/resultat" class="btn btn-secondary">
+        Résultats
+      </button>
+    </nav>
+    <div class="user-profile">
+      <div class="user-avatar">L</div>
+      <div class="user-info">
+        <div class="user-name">Dr. Laure</div>
+        <div class="user-role">Ergothérapeute</div>
+      </div>
+    </div>
+  </header>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MusiMots - Mode Jeu</title>
+  <link rel="stylesheet" href="./jeuReconstruirePhrase.component.scss"/>
+</head>
+<body>
+  <div class="MaquetteJeu">
+    <div class="container">
+      <header>
+        <div class="logo">
+          <div class="logo-icon">🎵</div>
+          <span>MusiMots</span>
+        </div>
+        <div class="user-profile">
+          <div class="user-avatar">L</div>
+          <div class="user-info">
+            <div class="user-name">Lucas</div>
+            <div class="user-role">Niveau 2</div>
+          </div>
+        </div>
+      </header>
+
+      <h2>Ouvre tes oreilles</h2>
+
+      <div class="config-button-container" style="text-align: right; margin: 10px;">
+        <button (click)="goToConfig()" class="btn btn-secondary">
+          Aller à la configuration ⚙️
+        </button>
+      </div>
+
+      <div class="game-container">
+        <div class="game-stage">
+          <div class="phrase-container">
+            <div class="instruction">
+              Remets les mots dans le bon ordre pour compléter la phrase !
+            </div>
+
+            <!-- Message de validation -->
+            <div class="validation-message"
+                 [class.correct]="isAnswerValid"
+                 [class.incorrect]="isAnswerValid === false">
+              {{ validationMessage }}
+            </div>
+
+            <!-- Bouton écouter -->
+            <div class="phrase-text">
+              <button class="btn btn-icon btn-primary" (click)="playSentence()">
+                <span>Écouter</span> 🔊
+              </button>
+            </div>
+
+            <!-- Zone de réponse avec les mots choisis -->
+            <div class="answer-container">
+              <span *ngFor="let word of getDisplayWords(); let i = index"
+                    [class]="getWordClass(word)"
+                    (click)="removeWordFromAnswer(i)">
+                {{ word.text }}
+              </span>
+            </div>
+
+            <!-- Banque de mots mélangés -->
+            <div class="word-bank">
+              <span *ngFor="let word of availableWords"
+                    class="word-chip"
+                    (click)="addWordToAnswer(word)">
+                {{ word }}
+              </span>
+            </div>
+
+            <!-- Boutons réinitialiser et valider -->
+            <div class="player-controls">
+              <button class="btn btn-secondary" (click)="resetAnswer()">Réinitialiser</button>
+              <button class="btn btn-primary" (click)="validateAnswer()">Valider</button>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-item">
+            <div class="progress-icon">👂</div>
+            <div class="progress-value">3</div>
+            <div class="progress-label">Écoutes complétées</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-icon">👥</div>
+            <div class="progress-value">24</div>
+            <div class="progress-label">Fans</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-icon">💰</div>
+            <div class="progress-value">120</div>
+            <div class="progress-label">Pièces</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-icon">⭐</div>
+            <div class="progress-value">2</div>
+            <div class="progress-label">Niveau</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

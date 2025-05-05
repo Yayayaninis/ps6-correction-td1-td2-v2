@@ -1,0 +1,123 @@
+<!-- maquetteResultat.component.html -->
+<div class="MaquetteResultat">
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">🎵</div>
+                <span>MusiMots</span>
+            </div>
+            <nav>
+                <button (click)="goToAccueil()" class="btn btn-secondary">
+                    Retourner au jeu️
+                </button>
+            </nav>
+            <div class="user-profile">
+                <div class="user-avatar">L</div>
+                <div class="user-info">
+                    <div class="user-name">Dr. Laure</div>
+                    <div class="user-role">Ergothérapeute</div>
+                </div>
+            </div>
+        </header>
+
+        <h2>Résultats et suivi</h2>
+        <div class="tab-navigation">
+            <button class="tab-button active">Vue d'ensemble</button>
+            <button class="tab-button">Progression individuelle</button>
+            <button class="tab-button">Rapports</button>
+        </div>
+
+        <div class="results-grid">
+            <div class="card stats-card">
+                <div class="stats-label">Taux de réussite moyen</div>
+            </div>
+            <div class="card stats-card">
+                <div class="stats-label">Exercices complétés cette semaine</div>
+            </div>
+            <div class="card stats-card">
+                <div class="stats-label">Minutes moyennes par session</div>
+            </div>
+        </div>
+
+        <!-- Progression des élèves -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Progression par élève</div>
+            </div>
+            <div *ngFor="let student of students" class="student-progress">
+                <div class="student-progress-avatar">🎓</div>
+                <div class="student-progress-details">
+                    <div class="student-progress-name">{{ student.nom }}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance par mini-jeu -->
+        <div class="results-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Performance par mini-jeu</div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-bars">
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activité récente -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Activité récente</div>
+                </div>
+                <div class="timeline">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Nuage de mots -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Mots les plus travaillés</div>
+            </div>
+            <div class="word-cloud">
+
+            </div>
+        </div>
+
+        <!-- Statistiques détaillées -->
+        <!-- Progression des élèves avec erreurs détaillées -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Progression par élève</div>
+            </div>
+
+            <div *ngFor="let student of students" class="student-progress">
+                <div class="student-progress-avatar">🎓</div>
+
+                <div class="student-progress-details">
+                    <div class="student-progress-name">{{ student.nom }}</div>
+
+                    <!-- Détail des erreurs par type -->
+                    <div class="error-bars">
+                        <div class="error-bar">
+                            <span>Erreurs de verbes :</span>
+
+                        </div>
+
+                        <div class="error-bar">
+                            <span>Erreurs d'adjectifs :</span>
+
+                        </div>
+
+                        <div class="error-bar">
+                            <span>Autres erreurs :</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,42 +1,56 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
-import { QuizListComponent } from './quizzes/quiz-list/quiz-list.component';
-import { QuizComponent } from './quizzes/quiz/quiz.component';
 import { HeaderComponent } from './header/header.component';
-import { QuizFormComponent } from './quizzes/quiz-form/quiz-form.component';
-import { EditQuizComponent } from './quizzes/edit-quiz/edit-quiz.component';
-import { AppRoutingModule } from './app.routing.module';
-import { QuestionListComponent } from './questions/question-list/question-list.component';
-import { QuestionFormComponent } from './questions/question-form/question-form.component';
-import { QuestionComponent } from './questions/question/question.component';
-import { UserComponent } from './users/user/user.component';
-import { UserFormComponent } from './users/user-form/user-form.component';
-import { UserListComponent } from './users/user-list/user-list.component';
+import { MaquetteJeuComponent } from './maquetteJeu/maquetteJeu.component';
+import { MaquetteConfigComponent } from './maquetteConfig/maquetteConfig.component';
+import { MaquetteResultatComponent } from './maquetteResultat/maquetteResultat.component';
+import { MaquetteVoitureComponent } from './maquetteVoiture/maquetteVoiture.component';
+import { V4FinalComponent } from './racer/v4.final.component';
+import { JeuVoitureComponent } from './jeu-voiture/jeu-voiture.component';
+import { SafeUrlPipe } from './safe-url.pipe';
+import { JeuPhraseComponent } from './jeu-phrase/jeu-phrase.component';
+import { StatsDisplayComponent } from './stats-display/stats-display.component';
+import { EtudiantDetailsComponent } from './etudiantPageInfo/maquetteEtudiant.component';
+
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'jeu', component: MaquetteJeuComponent },
+  { path: 'config', component: MaquetteConfigComponent },
+  { path: 'final', component: V4FinalComponent },
+  { path: 'statistique', component: StatsDisplayComponent },
+  { path: 'res', component: MaquetteResultatComponent},
+  { path: 'jeu-voiture', component: JeuVoitureComponent },
+  { path: 'jeu-phrase', component: JeuPhraseComponent },
+  { path: 'etudiant/:id', component: EtudiantDetailsComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    QuizListComponent,
-    QuizComponent,
     HeaderComponent,
-    QuizFormComponent,
-    EditQuizComponent,
-    QuestionListComponent,
-    QuestionFormComponent,
-    QuestionComponent,
-    UserComponent,
-    UserFormComponent,
-    UserListComponent,
+    MaquetteJeuComponent, // ← Correction ici
+    MaquetteConfigComponent,
+    MaquetteResultatComponent,
+    MaquetteVoitureComponent,
+    V4FinalComponent,
+    JeuVoitureComponent,
+    SafeUrlPipe,
+    JeuPhraseComponent,
+    StatsDisplayComponent,
+    EtudiantDetailsComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule,
-    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
