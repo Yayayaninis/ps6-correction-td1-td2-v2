@@ -1,13 +1,13 @@
 {
   "name": "backend-ps6-starter-quiz",
   "version": "1.0.0",
-  "description": "",
+  "description": "In back-end folder of this repository, you will find a postman collection called `PS6.postman_collection.json`.",
   "main": "index.js",
   "scripts": {
     "start": "node app/index.js",
-    "dev": "./node_modules/.bin/nodemon app/index.js",
-    "lint": "./node_modules/.bin/eslint -c .eslintrc.js app/",
-    "lint:fix": "./node_modules/.bin/eslint -c .eslintrc.js app/ --fix",
+    "dev": "nodemon app/index.js",
+    "lint": "eslint -c .eslintrc.js app/",
+    "lint:fix": "eslint -c .eslintrc.js app/ --fix",
     "start:e2e": "rimraf ./database/e2e && copyfiles -f ./database/e2e-starter/* ./database/e2e ./database/e2e && cross-env DB_FOLDER=e2e/ node app/index.js"
   },
   "precommit": [
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NablaT/backend-ps6-starter-quiz"
+    "url": "git+https://github.com/NablaT/backend-ps6-starter-quiz.git"
   },
   "keywords": [],
   "author": "",
