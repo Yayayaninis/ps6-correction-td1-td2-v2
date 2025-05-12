@@ -8,5 +8,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "chart.js": "^4.4.9",
+    "ng2-charts": "^8.0.0"
+  }
 }
